@@ -163,3 +163,4 @@ from Sales.SalesOrderHeader s
 inner join Sales.SalesPerson sp on s.SalesPersonID = sp.BusinessEntityID
 inner join Person.Person p on sp.BusinessEntityID = p.BusinessEntityID
 group by p.FirstName, p.LastName
+order by OrderCount desc;
