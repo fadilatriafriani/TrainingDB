@@ -23,10 +23,6 @@ select top 1 * from HumanResources.Employee order by BirthDate asc
 
 --SECTION 2--
 --Case 5
-select * from Sales.SalesOrderHeader
-select * from Sales.Customer
-select * from Person.Person
-
 select 
     p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName AS CustomerFullName,
     h.OrderDate,
@@ -37,9 +33,6 @@ inner join Person.Person as p on c.PersonID = p.BusinessEntityID
 
 
 --Case 6
-select * from Production.Product
-select * from Production.ProductSubcategory
-
 select 
     p.Name as ProductName,
     s.Name as SubcategoryName
@@ -48,9 +41,6 @@ inner join Production.ProductSubcategory s on p.ProductSubcategoryID = s.Product
 
 
 --Case 7
-select * from HumanResources.Employee
-select * from Person.Person
-
 select 
     p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName AS EmployeeName,
     e.JobTitle
@@ -59,10 +49,6 @@ inner join Person.Person p on e.BusinessEntityID = p.BusinessEntityID
 
 
 --case 8
-select * from Sales.SalesOrderHeader
-select * from Sales.SalesPerson
-select * from Person.Person
-
 select 
     s.SalesOrderID,
     sp.BusinessEntityID as SalesPersonID,
