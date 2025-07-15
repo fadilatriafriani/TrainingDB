@@ -12,3 +12,9 @@ select top 10 * from Production.Product order by ListPrice desc
 --Case 4
 select Name from Production.Product 
 where Name like 'b%'
+
+--pegawai paling muda
+select top 1 * from HumanResources.Employee order by BirthDate desc
+
+--pegawai paling tua
+select top 1 * from HumanResources.Employee order by BirthDate asc
