@@ -61,16 +61,24 @@ left join Person.Person as p on sp.BusinessEntityID = p.BusinessEntityID
 
 --SECTION 3--
 --Case 9
-select ProductLine, count(*) as Total from Production.Product group by ProductLine; --Count nya pakai primary key atau pakai *
+select ProductLine, count(*) as Total 
+from Production.Product 
+group by ProductLine; --Count nya pakai primary key atau pakai *
  
 --Case 10
-select ProductSubcategoryID, avg(ListPrice) as Average from Production.Product group by ProductSubcategoryID;
+select ProductSubcategoryID, avg(ListPrice) as Average 
+from Production.Product 
+group by ProductSubcategoryID;
 
 --Case 11
-select JobTitle, count(*) as EmployeeTotal from HumanResources.Employee group by JobTitle;
+select JobTitle, count(*) as EmployeeTotal 
+from HumanResources.Employee 
+group by JobTitle;
 
 --Case 12
-select year(OrderDate) as OrderYear, count(*) as OrderTotal from Sales.SalesOrderHeader group by year(OrderDate);
+select year(OrderDate) as OrderYear, count(*) as OrderTotal 
+from Sales.SalesOrderHeader 
+group by year(OrderDate);
 
 
 --SECTION 4--
