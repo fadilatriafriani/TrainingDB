@@ -75,32 +75,20 @@ left join Person.Person as p on sp.BusinessEntityID = p.BusinessEntityID
 
 --SECTION 3--
 --Case 9
-select ProductLine from Production.Product
-
-select ProductLine, count(*) as Total from Production.Product group by ProductLine;
+select ProductLine, count(*) as Total from Production.Product group by ProductLine; --Count nya pakai primary key atau pakai *
  
 --Case 10
-select ProductSubcategoryID from Production.Product
-
-select ProductSubcategoryID, avg(ListPrice) from Production.Product group by ProductSubcategoryID;
+select ProductSubcategoryID, avg(ListPrice) as Average from Production.Product group by ProductSubcategoryID;
 
 --Case 11
-select JobTitle from HumanResources.Employee
-
-select JobTitle, count(*) from HumanResources.Employee group by JobTitle;
+select JobTitle, count(*) as EmployeeTotal from HumanResources.Employee group by JobTitle;
 
 --Case 12
-select * from Sales.SalesOrderHeader
-
-select year(OrderDate) AS OrderYear, count(*) from Sales.SalesOrderHeader group by year(OrderDate);
+select year(OrderDate) as OrderYear, count(*) as OrderTotal from Sales.SalesOrderHeader group by year(OrderDate);
 
 
 --SECTION 4--
 --Case 13
-select * from Sales.SalesOrderHeader
-select * from Sales.Customer
-select * from Person.Person
-
 select 
     p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName as CustomerFullName,
     sum(s.TotalDue) as TotalSales
@@ -111,8 +99,6 @@ group by p.FirstName, p.MiddleName,  p.LastName
 
 
 --Case 14
-select * from Sales.SalesPerson
-
 select 
     p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName as SalesPersonName,
     count(s.SalesOrderID) as OrderCount
@@ -123,8 +109,6 @@ group by p.FirstName, p.MiddleName, p.LastName
 
 
 --Case 15
-select * from Sales.SalesOrderHeader
-
 select 
     year(OrderDate) as OrderYear,
     avg(TotalDue) as AverageOrderAmount
@@ -133,9 +117,6 @@ group by year(OrderDate)
 
 
 --Case 16
-select * from Sales.SalesOrderDetail
-select * from Production.Product
-
 select top 5
     p.Name AS ProductName,
     sum(o.OrderQty) as TotalQuantitySold
