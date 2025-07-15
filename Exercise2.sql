@@ -77,7 +77,7 @@ left join Person.Person as p on sp.BusinessEntityID = p.BusinessEntityID
 --Case 9
 select ProductLine from Production.Product
 
-select count(ProductLine) as Total from Production.Product 
+select ProductLine, count(*) as Total from Production.Product group by ProductLine;
  
 --Case 10
 select ProductSubcategoryID from Production.Product
