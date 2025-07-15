@@ -102,24 +102,24 @@ select * from Sales.Customer
 select * from Person.Person
 
 select 
-    p.FirstName + ' ' + p.LastName as CustomerFullName,
+    p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName as CustomerFullName,
     sum(s.TotalDue) as TotalSales
 from Sales.SalesOrderHeader s
 inner join Sales.Customer c on s.CustomerID = c.CustomerID
 inner join Person.Person p on c.PersonID = p.BusinessEntityID
-group by p.FirstName, p.LastName
+group by p.FirstName, p.MiddleName,  p.LastName
 
 
 --Case 14
 select * from Sales.SalesPerson
 
 select 
-    p.FirstName + ' ' + p.LastName as SalesPersonName,
+    p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName as SalesPersonName,
     count(s.SalesOrderID) as OrderCount
 from Sales.SalesPerson sp
 left join Sales.SalesOrderHeader s on sp.BusinessEntityID = s.SalesPersonID
 inner join Person.Person p on sp.BusinessEntityID = p.BusinessEntityID
-group by p.FirstName, p.LastName
+group by p.FirstName, p.MiddleName, p.LastName
 
 
 --Case 15
@@ -157,10 +157,10 @@ group by c.Name
 
 --Case 18
 select TOP 1
-    p.FirstName + ' ' + p.LastName as SalesPersonName,
+    p.FirstName + ' ' + ISNULL(p.MiddleName + ' ', '') + p.LastName as SalesPersonName,
     count(s.SalesOrderID) as OrderCount
 from Sales.SalesOrderHeader s
 inner join Sales.SalesPerson sp on s.SalesPersonID = sp.BusinessEntityID
 inner join Person.Person p on sp.BusinessEntityID = p.BusinessEntityID
-group by p.FirstName, p.LastName
+group by p.FirstName, p.MiddleName, p.LastName
 order by OrderCount desc;
