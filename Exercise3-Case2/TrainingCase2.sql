@@ -5,7 +5,7 @@ CREATE TABLE Employee (
     EmployeePosition VARCHAR(30)
 );
 
--- 2. Instructor (Instruktur adalah karyawan, 1 karyawan hanya bisa jadi 1 instruktur)
+-- 2. Instructor 
 CREATE TABLE Instructor (
     InstructorID INT PRIMARY KEY IDENTITY(1,1),
     EmployeeID INT NOT NULL UNIQUE,
