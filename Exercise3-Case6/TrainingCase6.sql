@@ -40,7 +40,7 @@ CREATE TABLE CampaignDealer (
     FOREIGN KEY (DealerID) REFERENCES Dealer(DealerID)
 );
 
--- 6. CustomerBenefit (mencatat pelanggan yang mendapat manfaat dari kampanye)
+-- 6. CustomerBenefit 
 CREATE TABLE CustomerBenefit (
     BenefitID INT PRIMARY KEY IDENTITY(1,1),
     CustomerName VARCHAR(100) NOT NULL,
