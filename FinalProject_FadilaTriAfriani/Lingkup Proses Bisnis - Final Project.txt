@@ -1,0 +1,10 @@
+Lingkup Proses Bisnis - Final Project :
+1. TableFinalProject -> Mencakup table apa saja yang ada di Database Final Project
+2. InsertDataDummytoTesting -> Mencakup contoh data dummy untuk keperluan testing
+3. TriggerAfterSale -> Mencakup query trigger yg otomatis jalan setelah ada data baru (insert) di tabel Agreement
+4. FunctionTotalPrice -> Menghitung total Harga dengan harga fix atau harga setelah diskon
+5. FunctionDiscount -> Menghitung diskon yang didapatkan
+6. StoreProcedureRegisterCustomer -> Query utk menambah data pelanggan baru
+7. StoreProcedureSubmitCredit -> Query untuk menambah data credit baru  
+8. StoreProcedureWarratiRegistraton -> Query untuk pendaftaran garansi untuk mobil yang sudah dibeli
+9. ViewFinalProject -> Untuk melihat data
